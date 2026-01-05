@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EuroWork - Работа в Канаде | Визы и Трудоустройство</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --red: #FF0000;
+            --dark: #0A0A0A;
+            --gray: #1A1A1A;
+            --light-gray: #E5E5E5;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
+            z-index: 1;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="2" height="2" fill="rgba(255,255,255,0.03)"/></svg>');
+            background-size: 50px 50px;
+            animation: grain 8s steps(10) infinite;
+        }
+
+        @keyframes grain {
+            0%, 100% { transform: translate(0, 0); }
+            10% { transform: translate(-5%, -5%); }
+            20% { transform: translate(-10%, 5%); }
+            30% { transform: translate(5%, -10%); }
+            40% { transform: translate(-5%, 15%); }
+            50% { transform: translate(-10%, 5%); }
+            60% { transform: translate(15%, 0); }
+            70% { transform: translate(0, 10%); }
+            80% { transform: translate(-15%, 0); }
+            90% { transform: translate(10%, 5%); }
+        }
+
+        .hero-flag {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, var(--red) 40%);
+            opacity: 0.15;
+            z-index: 2;
+            clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            max-width: 1200px;
+            padding: 0 40px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 3rem;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        .logo-euro {
+            color: var(--white);
+        }
+
+        .logo-work {
+            color: var(--red);
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+        }
+
+        .canada-flag {
+            color: var(--red);
+            font-size: 5rem;
+            display: inline-block;
+            animation: wave 2s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-10deg); }
+            75% { transform: rotate(10deg); }
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--light-gray);
+            margin-bottom: 50px;
+            font-weight: 500;
+            animation: fadeInUp 1s ease-out 0.6s backwards;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: 50px;
+            animation: fadeInUp 1s ease-out 0.8s backwards;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 3rem;
+            color: var(--red);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--light-gray);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 20px 60px;
+            background: var(--red);
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 1s backwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
+        }
+
+        .payment-note {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #4ADE80;
+            font-weight: 600;
+            animation: fadeInUp 1s ease-out 1.2s backwards;
+        }
+
+        section {
+            padding: 100px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--red);
+        }
+
+        .benefits {
+            background: var(--gray);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background: var(--dark);
+            padding: 40px;
+            border-left: 4px solid var(--red);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateX(10px);
+            box-shadow: -10px 10px 30px rgba(255, 0, 0, 0.2);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .benefit-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--red);
+        }
+
+        .benefit-card p {
+            color: var(--light-gray);
+            line-height: 1.6;
+        }
+
+        .jobs-section {
+            background: var(--dark);
+        }
+
+        .jobs-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 60px;
+        }
+
+        .jobs-column h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--red);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .job-card {
+            background: var(--gray);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 3px solid var(--red);
+            transition: all 0.3s ease;
+        }
+
+        .job-card:hover {
+            transform: translateX(10px);
+            background: #252525;
+        }
+
+        .job-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+
+        .job-description {
+            color: var(--light-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .job-special {
+            background: var(--red);
+            color: var(--white);
+            padding: 5px 10px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .requirements {
+            background: var(--gray);
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .requirement-card {
+            background: var(--dark);
+            padding: 30px;
+            text-align: center;
+            border-top: 3px solid var(--red);
+        }
+
+        .requirement-card h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--red);
+        }
+
+        .requirement-card p {
+            color: var(--light-gray);
+            line-height: 1.6;
+        }
+
+        .pricing {
+            background: var(--dark);
+            text-align: center;
+        }
+
+        .pricing-box {
+            background: var(--gray);
+            padding: 60px;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 3px solid var(--red);
+            position: relative;
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--red);
+            padding: 10px 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .price {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 4rem;
+            color: var(--red);
+            margin: 30px 0;
+        }
+
+        .price-detail {
+            font-size: 1.1rem;
+            color: var(--light-gray);
+            margin-bottom: 40px;
+        }
+
+        .payment-guarantee {
+            background: rgba(74, 222, 128, 0.1);
+            border: 2px solid #4ADE80;
+            padding: 25px;
+            margin-top: 40px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #4ADE80;
+        }
+
+        .contact {
+            background: var(--gray);
+            text-align: center;
+        }
+
+        .contact-info {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-link {
+            color: var(--red);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--white);
+        }
+
+        footer {
+            background: var(--dark);
+            padding: 40px;
+            text-align: center;
+            color: var(--light-gray);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+            z-index: 9999;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #25D366;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                padding: 40px 0;
+            }
+
+            .hero-content {
+                padding: 0 20px;
+            }
+
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+
+            .canada-flag {
+                font-size: 3rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .stat-label {
+                font-size: 0.8rem;
+            }
+
+            .cta-button {
+                padding: 16px 40px;
+                font-size: 1rem;
+                width: 100%;
+            }
+
+            .payment-note {
+                font-size: 0.9rem;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+                margin-bottom: 40px;
+            }
+
+            h2::after {
+                width: 60px;
+            }
+
+            .benefits-grid,
+            .requirements-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .benefit-card {
+                padding: 30px 25px;
+            }
+
+            .benefit-icon {
+                font-size: 2rem;
+            }
+
+            .benefit-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .benefit-card p {
+                font-size: 0.95rem;
+            }
+
+            .jobs-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .jobs-column h3 {
+                font-size: 1.5rem;
+            }
+
+            .job-card {
+                padding: 20px;
+            }
+
+            .job-title {
+                font-size: 1.1rem;
+            }
+
+            .job-description {
+                font-size: 0.9rem;
+            }
+
+            .requirement-card {
+                padding: 25px 20px;
+            }
+
+            .requirement-card h4 {
+                font-size: 1.1rem;
+            }
+
+            .pricing-box {
+                padding: 40px 25px;
+            }
+
+            .pricing-badge {
+                font-size: 0.75rem;
+                padding: 8px 20px;
+                top: -15px;
+            }
+
+            .price {
+                font-size: 3rem;
+            }
+
+            .price-detail {
+                font-size: 1rem;
+            }
+
+            .price-detail[style*="1.5rem"] {
+                font-size: 1.2rem !important;
+            }
+
+            .payment-guarantee {
+                font-size: 1rem;
+                padding: 20px;
+            }
+
+            .contact-info {
+                font-size: 1.1rem;
+            }
+
+            .contact-link {
+                font-size: 1.4rem;
+            }
+
+            footer {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-flag"></div>
+        <div class="hero-content">
+            <div class="logo">
+                <span class="logo-euro">EURO</span><span class="logo-work">WORK</span>
+            </div>
+            <h1>
+                <span class="canada-flag">🇨🇦</span><br>
+                РАБОТА В КАНАДЕ
+            </h1>
+            <p class="subtitle">Туристическая виза + легальное трудоустройство</p>
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number">7</span>
+                    <span class="stat-label">Лет опыта</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">5000+</span>
+                    <span class="stat-label">Довольных клиентов</span>
+                </div>
+            </div>
+            <a href="https://wa.me/77074453727" target="_blank" class="cta-button">Получить консультацию</a>
+            <div class="payment-note">✅ Оплата после получения визы</div>
+        </div>
+    </div>
+
+    <section class="benefits">
+        <h2>Что вы получаете</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">🎫</div>
+                <h3>Туристическая виза до 10 лет</h3>
+                <p>Долгосрочная виза с возможностью многократных въездов в Канаду</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">💼</div>
+                <h3>Work Permit</h3>
+                <p>Дальнейшее оформление разрешения на работу в Канаде</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">⚖️</div>
+                <h3>Легальный старт</h3>
+                <p>Полностью законное трудоустройство с официальными документами</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🏢</div>
+                <h3>Реальные вакансии</h3>
+                <p>Проверенные работодатели с официальными контрактами</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="jobs-section" id="jobs">
+        <h2>Актуальные вакансии</h2>
+        <div class="jobs-container">
+            <div class="jobs-column">
+                <h3>👨 Для мужчин</h3>
+                <div class="job-card">
+                    <div class="job-title">Строительство</div>
+                    <div class="job-description">Отделочники, монтажники — работа на строительных объектах с хорошими условиями труда</div>
+                </div>
+                <div class="job-card">
+                    <div class="job-title">Сварщики, слесари</div>
+                    <div class="job-description">Квалифицированная работа на производстве с конкурентной оплатой</div>
+                </div>
+                <div class="job-card">
+                    <div class="job-title">Сборщики товаров</div>
+                    <div class="job-description">Работа в онлайн-магазинах, склады с продуктами, овощами и фруктами</div>
+                </div>
+                <div class="job-card">
+                    <div class="job-title">Курьеры</div>
+                    <div class="job-description">Доставка еды и посылок, гибкий график работы</div>
+                </div>
+            </div>
+
+            <div class="jobs-column">
+                <h3>👩 Для женщин</h3>
+                <div class="job-card">
+                    <div class="job-special">Бесплатное обучение</div>
+                    <div class="job-title">Массажистки</div>
+                    <div class="job-description">Работа в салонах и wellness-центрах. Бесплатное обучение лечебному массажу в Канаде (внутренний курс + практика). Опыт приветствуется, но не обязателен.</div>
+                </div>
+                <div class="job-card">
+                    <div class="job-title">Сиделки (caregiver)</div>
+                    <div class="job-description">Уход и забота о пожилых людях: помощь в быту, сопровождение, комфорт и внимание. Спокойная, уважаемая работа.</div>
+                </div>
+                <div class="job-card">
+                    <div class="job-title">Горничные</div>
+                    <div class="job-description">Работа в отелях и хостелах с официальным трудоустройством</div>
+                </div>
+                <div class="job-card">
+                    <div class="job-title">Мерчендайзеры</div>
+                    <div class="job-description">Выкладка товаров в магазинах, работа с продукцией</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="requirements">
+        <h2>Требования к кандидатам</h2>
+        <div class="requirements-grid">
+            <div class="requirement-card">
+                <h4>👤 Возраст</h4>
+                <p>От 18 до 50 лет</p>
+            </div>
+            <div class="requirement-card">
+                <h4>🌍 Гражданство</h4>
+                <p>Таджикистан<br>Узбекистан<br>Кыргызстан</p>
+            </div>
+            <div class="requirement-card">
+                <h4>📋 Документы</h4>
+                <p>Загранпаспорт и базовый пакет документов</p>
+            </div>
+            <div class="requirement-card">
+                <h4>💪 Опыт работы</h4>
+                <p>Приветствуется, но не обязателен для большинства вакансий</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <h2>Стоимость программы</h2>
+        <div class="pricing-box">
+            <div class="pricing-badge">Специальное предложение</div>
+            <div class="payment-guarantee">
+                ✅ ОПЛАТА ПОСЛЕ ПОЛУЧЕНИЯ ВИЗЫ<br>
+                Вы платите только когда виза одобрена
+            </div>
+                        <a href="https://wa.me/77074453727" target="_blank" class="cta-button">Узнать цену</a>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Свяжитесь с нами</h2>
+        <div class="contact-info">
+            Готовы начать? Свяжитесь с нами для бесплатной консультации
+        </div>
+        <a href="https://wa.me/77074453727" target="_blank" class="contact-link">📱 WhatsApp</a>
+        <p style="margin-top: 20px; color: var(--light-gray);">или напишите нам в <a href="https://www.instagram.com/eurowork2020" target="_blank" style="color: var(--red); text-decoration: none; font-weight: 600;">Instagram @eurowork</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 EuroWork. Все права защищены.</p>
+        <p style="margin-top: 10px; font-size: 0.9rem;">7 лет опыта | 5000+ довольных клиентов | Надежность и профессионализм</p>
+    </footer>
+
+    <a href="https://wa.me/77074453727" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+        💬
+    </a>
+</body>
+</html>
